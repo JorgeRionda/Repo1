@@ -1,0 +1,46 @@
+CATEGORIES
+sentencia, expresion, definicion, tipo
+
+NODES
+
+programa->definicion*;
+
+defVar:definicion -> string tipo;
+defStruct:definicion -> string defVar*;
+funcion:definicion -> string parametro* tipo defVar* sentencia*;
+parametro:definicion -> string defVar*;
+
+asignacion:sentencia -> left:expresion right:expresion;
+print:sentencia -> expresion;
+printsp:sentencia -> expresion;
+println:sentencia -> expresion;
+read:sentencia -> expresion;
+while:sentencia -> cond:expresion cuerpo:sentencia*;
+sentIf:sentencia -> cond:expresion sentencia* sentElse:sentencia*;
+llamadaFunc:sentencia -> string expresion*;
+return:sentencia -> expresion;
+
+exprArit:expresion -> left:expresion string right:expresion;
+exprLogic:expresion -> left:expresion string right:expresion;
+exprIndice:expresion -> left:expresion right:expresion;
+exprNot:expresion -> expresion;
+exprComp:expresion -> left:expresion string right:expresion;
+exprLlamada:expresion -> expresion string;
+exprLlamadaFunc:expresion -> string expresion*;
+Cast:expresion -> tipo expresion;
+var:expresion -> string;
+litEnt:expresion -> string;
+litReal:expresion -> string;
+ExprChar:expresion -> string;
+
+tipoInt:tipo -> ;
+tipoReal:tipo -> ;
+tipoChar:tipo -> ;
+tipoIdent:tipo -> string;
+tipoArray:tipo -> litEnt tipo;
+tipoVoid:tipo -> ;
+
+
+
+
+
